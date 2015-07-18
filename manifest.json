@@ -1,0 +1,15 @@
+{
+   "manifest_version" : 2,
+   "name"             : "Video downloader",
+   "version"          : "1.0",
+   "description"      : "This is extension will allow users to download videos from Youtube.",
+   "homepage_url"     : "http://www.cefalo.com/",
+   "update_url"       : "http://www.cefalo.com/updates.xml",
+   "permissions"      : ["http://*.youtube.com/*"],
+   "content_scripts"  : [
+   	{
+   	   "matches": ["https://*.youtube.com/*"],
+   	   "js": ["download.js"]
+   	}
+   ]
+}
