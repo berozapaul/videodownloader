@@ -5,6 +5,7 @@
    "description"      : "This extension will allow users to download videos from Youtube.",
    "homepage_url"     : "http://www.cefalo.com/",
    "update_url"       : "http://www.cefalo.com/updates.xml",
+   "icons"            : {"16": "icon16.png", "48": "icon48.png", "128": "icon128.png"},
    "permissions"      : ["http://*.youtube.com/*"],
    "content_scripts"  : [
    	{
