@@ -1,9 +1,29 @@
+/**
+ * Filename: videodownloader.js
+ * Purpose : This will parse the decode the video data and will allow users to download
+ * Project : Cefal School
+ * Author  : beroza@cefalo.com
+ * Version : 1.0
+ * Copyright (c) 2015 Cefal School
+ */
+
+/**
+ * Purpose : Replace all instances of input string.
+ * @access : public
+ * @params : inputString, stringToFind, replaceWithString
+ * @return : string;
+ */
 function youtubeReplaceAllString(inputString, stringToFind, replaceWithString)
 {
   var thisRegExp = new RegExp(stringToFind, 'g');
   return inputString.replace(thisRegExp, replaceWithString);
 }
 
+/**
+ * Purpose : Loop through each video and create the downloadable link (add a block after video).
+ * @access : public
+ * @params : videoList
+ */
 function youtubeAddBlock(videoList)
 {
    var title      = 'saved video';
@@ -41,6 +61,12 @@ function youtubeAddBlock(videoList)
    }
 }
 
+/**
+ * Purpose : Fetch encoded youtube video data and prepare array of video object.
+ * @access : public
+ * @params : undefined
+ * @return : array of video objects;
+ */
 function youtubeGetVideoList()
 {
   try{
@@ -122,6 +148,12 @@ function youtubeGetVideoList()
   }
 }
 
+/**
+ * Purpose : Retrieve youtube video signature.
+ * @access : public
+ * @params : signature
+ * @return : decrypted signature;
+ */
 function youtubeRetrieveSignature(signature)
 {
    a = signature.split("");
@@ -151,20 +183,24 @@ var decipherSignature = {
    }
 };
 
+/**
+ * Purpose : Protect multiple loading.
+ * @access : public
+ * @params : undefined
+ */
 function youtubeListener(){
     var ext = document.getElementById('download-youtube-chrome-extension');
-    if(typeof ytplayer != 'undefined' &&
-        typeof ytplayer.config != 'undefined' &&
-        ytplayer.config != null &&
-        typeof ytplayer.config.args != 'undefined' &&
-        typeof ytplayer.config.args.url_encoded_fmt_stream_map != 'undefined' &&
-        ext == null){
+    if(typeof ytplayer != 'undefined' && typeof ytplayer.config != 'undefined' && ytplayer.config != null && typeof ytplayer.config.args != 'undefined' &&
+        typeof ytplayer.config.args.url_encoded_fmt_stream_map != 'undefined' && ext == null){
         youtubeAddBlock(youtubeGetVideoList());
     }
 }
 
-if(window.history && history.pushState){
-    setInterval("youtubeListener()", 300);
-}else{
-    youtubeAddBlock(youtubeGetVideoList());
+if(window.history && history.pushState)
+{
+   setInterval("youtubeListener()", 300);
+}
+else
+{
+   youtubeAddBlock(youtubeGetVideoList());
 }
