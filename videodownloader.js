@@ -1,10 +1,10 @@
 /**
  * Filename: videodownloader.js
- * Purpose : This will parse the decode the video data and will allow users to download
- * Project : Cefal School
+ * Purpose : This will parse the encoded video data and will allow users to download
+ * Project : Cefalo School
  * Author  : beroza@cefalo.com
  * Version : 1.0
- * Copyright (c) 2015 Cefal School
+ * Copyright (c) 2015 Cefalo School
  */
 
 /**
